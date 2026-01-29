@@ -1,5 +1,9 @@
 {
     "image": "mcr.microsoft.com/devcontainers/java:17-bookworm",
+
+    "onCreateCommand": "curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarn.gpg > /dev/null && echo \"deb [signed-by=/usr/share/keyrings/yarn.gpg] https://dl.yarnpkg.com/debian stable main\" | sudo tee /etc/apt/sources.list.d/yarn.list",
+
+
     "features": {
         "ghcr.io/devcontainers/features/java:1": {
             "version": "none",
@@ -14,16 +18,18 @@
         "ghcr.io/devcontainers/features/terraform:1": {},
         "ghcr.io/devcontainers/features/docker-in-docker:1": {}
     },
+
     "containerEnv": {
         "JAVA_HOME": "/usr/lib/jvm/msopenjdk-current"
     },
+
     "customizations": {
         "vscode": {
-            "settings": {},
             "extensions": [
                 "vscjava.vscode-java-pack"
             ]
         }
     },
+
     "remoteUser": "vscode"
 }
